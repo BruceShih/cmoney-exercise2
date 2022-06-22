@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+/* --- base --- */
+
+* {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+h1 {
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+/* --- modules --- */
+
+/* grid */
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 1200px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: stretch;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.row > * {
+  box-sizing: border-box;
+  padding: 50px 0 0 50px;
+}
+
+.row > .col-1 {
+  width: 8.33333%;
+}
+
+.row > .col-2 {
+  width: 16.66667%;
+}
+
+.row > .col-3 {
+  width: 25%;
+}
+
+.row > .col-4 {
+  width: 33.33333%;
+}
+
+.row > .col-5 {
+  width: 41.66667%;
+}
+
+.row > .col-6 {
+  width: 50%;
+}
+
+.row > .col-7 {
+  width: 58.33333%;
+}
+
+.row > .col-8 {
+  width: 66.66667%;
+}
+
+.row > .col-9 {
+  width: 75%;
+}
+
+.row > .col-10 {
+  width: 83.33333%;
+}
+
+.row > .col-11 {
+  width: 91.66667%;
+}
+
+.row > .col-12 {
+  width: 100%;
+}
+
+@media screen and (min-width: 1025px) {
+  .container {
+    width: 960px;
+  }
+
+  .row {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+
+  .row > * {
+    padding: 30px 0 0 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+
+  .row {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+
+  .row > * {
+    padding: 30px 0 0 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .row {
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+
+  .row > * {
+    padding: 30px 0 0 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* header */
+.header {
+  height: 4.375rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* --- sections --- */
+
+.section-landing {
+  /* margin-top: -4.375rem; */
+  height: 1000px;
+  background-image: url('../images/banr_snow.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.section-learn-more {
+  height: 500px;
+  background-color: #fff;
+}
+
+.section-steps {
+  height: 500px;
+  background-image: linear-gradient(
+    135deg,
+    #50c3df 25%,
+    #24b4d7 25%,
+    #24b4d7 50%,
+    #50c3df 50%,
+    #50c3df 75%,
+    #24b4d7 75%,
+    #24b4d7 100%
+  );
+  background-size: 8.49px 8.49px;
+}
+
+.section-result {
+  height: 500px;
+  background-color: #fff;
+}
+
+/* footer */
+.footer {
+  height: 5.875rem;
+  background-color: #333;
+}
+
+/* --- utility --- */
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-shrink {
+  flex-shrink: 1 !important;
+}
+
+.flex-grow {
+  flex-grow: 1 !important;
+}
+
+@media (min-width: 768px) {
+  .justify-md-start {
+    justify-content: flex-start !important;
+  }
+
+  .justify-md-end {
+    justify-content: flex-end !important;
+  }
+}
