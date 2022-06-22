@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "classic",
+    "target": "esnext",
+    "strictNullChecks": true,
+    "strictFunctionTypes": true
+  }
+}
