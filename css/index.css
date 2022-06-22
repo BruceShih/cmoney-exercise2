@@ -263,13 +263,3 @@ h1 {
 .flex-grow {
   flex-grow: 1 !important;
 }
-
-@media (min-width: 768px) {
-  .justify-md-start {
-    justify-content: flex-start !important;
-  }
-
-  .justify-md-end {
-    justify-content: flex-end !important;
-  }
-}
