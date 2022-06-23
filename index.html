@@ -42,16 +42,35 @@
             </div>
           </div>
           <div class="col mt-0">
-            <div class="block bg-secondary color-white w-fixed px-5">
+            <div
+              class="block position-relative flex-row bg-secondary color-white w-fixed px-5"
+            >
               <div class="stepper">
-                <div class="stepper-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="stepper-upper-text">
+                  <div class="font-size-small left-0"></div>
+                  <div class="font-size-small left-34">達34人</div>
+                  <div class="font-size-small left-76">達76人</div>
+                  <div class="font-size-small left-100">達100人</div>
+                </div>
+                <!-- TODO: width = total progress % -->
+                <div
+                  class="stepper-bar"
+                  role="progressbar"
+                  style="width: 25%"
+                ></div>
+                <div class="stepper-lower-text">
+                  <div class="font-size-small left-0">預購開始</div>
+                  <div class="font-size-small left-34">送 Sass</div>
+                  <div class="font-size-small left-76">送 Webpack</div>
+                  <div class="font-size-small left-100">送資安課程</div>
+                </div>
               </div>
               <div class="stepper-progress">
-                <!-- TODO: generate steps -->
-                <div class="stepper-progress-step">1</div>
-                <div class="stepper-progress-step">2</div>
-                <div class="stepper-progress-step">3</div>
-                <div class="stepper-progress-step">4</div>
+                <!-- TODO: generate steps and assign width classes -->
+                <div class="stepper-progress-step left-0 active"></div>
+                <div class="stepper-progress-step left-34"></div>
+                <div class="stepper-progress-step left-76"></div>
+                <div class="stepper-progress-step left-100"></div>
               </div>
             </div>
           </div>
