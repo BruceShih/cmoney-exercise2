@@ -12,18 +12,25 @@
     <script type="module" src="./js/index.js"></script>
   </head>
   <body>
-    <header class="header flex justify-between items-center">
-      <div>
+    <!-- TODO: header's onscroll event -->
+    <header class="header static flex justify-between items-center">
+      <div class="header__logo">
         <img src="./images/logo.png" alt="Logo" />
       </div>
-      <nav>
-        <a href="#">挑戰自我</a>
-        <a href="#">課程說明</a>
-        <a href="#">培訓成果</a>
+      <nav class="header__nav nav">
+        <a class="button button-link" href="#">挑戰自我</a>
+        <a class="button button-link" href="#">課程說明</a>
+        <a class="button button-link" href="#">培訓成果</a>
       </nav>
     </header>
     <!-- landing -->
-    <section class="section-landing"></section>
+    <section class="section-landing flex justify-center items-center">
+      <div class="jumbo flex flex-col justify-center items-center">
+        <span class="h2">F2E 前端開發</span>
+        <h1>前端工程師排版試題</h1>
+        <p>學會，百萬年薪不是夢</p>
+      </div>
+    </section>
     <!-- learn more #1 -->
     <section class="section-learn-more"></section>
     <!-- steps -->
