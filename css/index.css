@@ -329,7 +329,7 @@ th {
 .card-img,
 .card-img-top {
   width: 100%;
-  max-height: 12.5rem;
+  height: 12.5rem;
 }
 
 .card-title {
@@ -452,6 +452,16 @@ th {
 
 .section-steps .card {
   width: 22.5rem;
+  margin: 2rem;
+}
+
+.section-steps .card + .card::before {
+  position: absolute;
+  top: 7.5rem;
+  left: -3rem;
+  content: '≫';
+  font-size: 3rem;
+  color: var(--color-white);
 }
 
 .section-result {
@@ -477,7 +487,7 @@ th {
   margin-left: -0.75rem;
 }
 
-.row > * {
+.row > .col {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
@@ -782,15 +792,36 @@ th {
 
 .grid {
   display: grid;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.grid-12 {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 2rem;
 }
 
+.grid-1-col {
+  grid-template-columns: 1fr;
+}
+
+.grid-column-4 {
+  grid-column-start: span 4;
+}
+
+.grid-column-3\/3 {
+  grid-row-start: 2;
+  grid-column: 3/3;
+}
+
 /* .grid > .col:nth-child(-1n + 3) {
   grid-column: span 4;
-} */
+}
 
-/* .grid > .col:nth-last-child(2) {
+.grid > .col:nth-last-child(2) {
   grid-row-start: 2;
   grid-column: 3 / span 4;
 }
@@ -869,7 +900,6 @@ th {
   justify-content: center;
   overflow: hidden;
   background-color: #22a9ca;
-  /* transition: var(--bs-progress-bar-transition); */
 }
 
 .stepper > .stepper-lower-text {
