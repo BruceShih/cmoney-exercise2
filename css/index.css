@@ -8,18 +8,21 @@
   --white: #fff;
   --black: #000;
   --gray: #333;
+  --lightgray: #eaeaea;
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-purple: var(--purple);
   --color-white: var(--white);
   --color-black: var(--black);
   --color-gray: var(--gray);
+  --color-lightgray: var(--lightgray);
   --background-primary: var(--primary);
   --background-secondary: var(--secondary);
   --background-purple: var(--purple);
   --background-white: var(--white);
   --background-black: var(--black);
   --background-gray: var(--gray);
+  --background-lightgray: var(--lightgray);
   --background-transparent: transparent;
   --font-size-largest: calc(1rem * 2);
   --font-size-larger: calc(1rem * 1.5);
@@ -148,7 +151,7 @@ a.button {
 
 /* footer */
 .footer {
-  height: 5.875rem;
+  color: var(--color-white);
   background-color: var(--background-gray);
 }
 
@@ -228,6 +231,63 @@ a.button {
 .header > .header__nav .button-link {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+/* table */
+table {
+  border-collapse: collapse;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+.table {
+  margin-bottom: 1rem;
+  width: 100%;
+  color: var(--color-black);
+  vertical-align: top;
+  border-color: lightgray;
+}
+
+.table > :not(caption) > * > * {
+  padding: 1rem;
+  border-bottom-width: 1px;
+}
+
+.table > thead {
+  color: var(--color-gray);
+  background-color: var(--background-lightgray);
+  vertical-align: bottom;
+}
+
+.table > tbody {
+  vertical-align: inherit;
+}
+
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
+}
+
+.table-bordered > :not(caption) > * > * {
+  border-width: 0 1px;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+  background-color: rgba(0, 0, 0, 0.07);
+  color: var(--color-black);
+}
+
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(0, 0, 0, 0.075);
+  color: var(--color-black);
 }
 
 /* --- modules --- */
@@ -390,7 +450,6 @@ a.button {
 }
 
 .section-result {
-  height: 500px;
   background-color: var(--background-white);
 }
 
@@ -880,6 +939,10 @@ a.button {
   font-weight: var(--font-weight-bold);
 }
 
+.text-center {
+  text-align: center;
+}
+
 .color-primary {
   color: var(--color-primary);
 }
@@ -896,6 +959,18 @@ a.button {
   color: var(--color-white);
 }
 
+.color-black {
+  color: var(--color-black);
+}
+
+.color-gray {
+  color: var(--color-gray);
+}
+
+.color-lightgray {
+  color: var(--color-lightgray);
+}
+
 .bg-primary {
   background-color: var(--background-primary);
 }
@@ -910,6 +985,18 @@ a.button {
 
 .bg-white {
   background-color: var(--background-white);
+}
+
+.bg-black {
+  background-color: var(--background-black);
+}
+
+.bg-gray {
+  background-color: var(--background-gray);
+}
+
+.bg-lightgray {
+  background-color: var(--background-lightgray);
 }
 
 .bg-transparent {
