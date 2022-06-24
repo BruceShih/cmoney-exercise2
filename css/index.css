@@ -363,7 +363,7 @@ th {
 
 .section-signup {
   position: relative;
-  top: -6rem;
+  top: -3.5rem;
   background-color: var(--background-transparent);
 }
 
@@ -487,7 +487,7 @@ th {
   margin-left: -0.75rem;
 }
 
-.row > .col {
+.row > * {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
