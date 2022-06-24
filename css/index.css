@@ -227,12 +227,9 @@ a.button {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 1rem;
   width: 100%;
   height: 4.375rem;
   background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .header.static {
@@ -260,6 +257,7 @@ a.button {
   display: inline-block;
   padding-top: 0.5rem;
   padding-bottom: 0.35rem;
+  margin-left: 1rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
@@ -388,7 +386,7 @@ th {
 }
 
 .table > :not(caption) > * > * {
-  padding: 1rem;
+  padding: 0.75rem;
   border-bottom-width: 1px;
 }
 
@@ -411,13 +409,19 @@ th {
 }
 
 .table-striped > tbody > tr:nth-of-type(even) > * {
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: rgba(0, 0, 0, 0.05);
   color: var(--color-black);
 }
 
 .table-hover > tbody > tr:hover > * {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(0, 0, 0, 0.055);
   color: var(--color-black);
+}
+
+@media (min-width: 481px) {
+  .table > :not(caption) > * > * {
+    padding: 1rem;
+  }
 }
 
 /* --- modules --- */
@@ -499,26 +503,33 @@ th {
 
 .section-signup {
   position: relative;
-  top: -3.5rem;
+  top: 0;
   background-color: var(--background-transparent);
 }
 
-.section-signup > .container {
-  max-width: 75rem;
-}
-
 .section-signup .fixed-size {
-  min-width: 424px;
+  width: 100%;
+  min-width: 100%;
 }
 
-@media (max-width: 481px) {
+@media (min-width: 480px) {
   .section-signup {
-    top: 0;
+    top: -3.5rem;
   }
 
-  .section-signup .fixed-size {
-    width: 100%;
-    min-width: 100%;
+  .section-signup > .container {
+    max-width: 75rem;
+  }
+
+  .section-signup .row.no-gutters {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .section-signup .row.no-gutters > .col,
+  .section-signup .row.no-gutters > [class*='col-'] {
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
 
@@ -655,7 +666,7 @@ th {
   }
 }
 
-.section-result {
+.section-result .col-12 > div {
   background-color: var(--background-white);
 }
 
@@ -668,16 +679,16 @@ th {
 /* grid */
 .container {
   width: 100%;
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
 
 .container-fluid {
   width: 100%;
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -697,24 +708,20 @@ th {
 }
 
 @media (min-width: 1024px) {
-  .container,
+  .container {
+    max-width: 1400px;
+  }
+
   .container-fluid {
     max-width: 100%;
-  }
-}
-
-@media (min-width: 1440px) {
-  .container,
-  .container-fluid {
-    max-width: 1400px;
   }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -12px;
-  margin-left: -12px;
+  margin-right: -1rem;
+  margin-left: -1rem;
 }
 
 .col-1,
@@ -795,8 +802,8 @@ th {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 12px;
-  padding-left: 12px;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .col {
@@ -1185,8 +1192,9 @@ th {
 
 /* jumbo */
 .jumbo {
-  padding: 5rem;
-  width: 45.5rem;
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
   background-image: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.2) 25%,
@@ -1207,43 +1215,42 @@ th {
 .jumbo > .display-h1 {
   margin-top: 0;
   margin-bottom: 2rem;
-  font-size: 3.75rem;
+  font-size: var(--font-size-h1);
 }
 
 .jumbo > h2,
 .jumbo > .display-h2 {
   margin-bottom: 0.75rem;
-  font-size: 2rem;
+  font-size: var(--font-size-h2);
 }
 
 .jumbo > p {
   margin-top: 0;
-  font-size: 1.75rem;
+  font-size: var(--font-size-base);
 }
 
-@media (max-width: 481px) {
+@media (min-width: 480px) {
   .jumbo {
-    margin: 1rem;
-    padding: 0;
-    width: 100%;
+    padding: 4rem;
+    width: 45.5rem;
   }
 
   .jumbo > h1,
   .jumbo > .display-h1 {
     margin-top: 0;
     margin-bottom: 2rem;
-    font-size: var(--font-size-h1);
+    font-size: 3.75rem;
   }
 
   .jumbo > h2,
   .jumbo > .display-h2 {
     margin-bottom: 0.75rem;
-    font-size: var(--font-size-h2);
+    font-size: 2rem;
   }
 
   .jumbo > p {
     margin-top: 0;
-    font-size: var(--font-size-base);
+    font-size: 1.75rem;
   }
 }
 
@@ -1912,6 +1919,14 @@ th {
 
 .mb-6 {
   margin-bottom: 5rem;
+}
+
+.elevation-1 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.elevation-2 {
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
 }
 
 .left-0 {
