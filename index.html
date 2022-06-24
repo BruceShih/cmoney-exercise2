@@ -13,15 +13,23 @@
   </head>
   <body>
     <!-- TODO: header's onscroll event -->
-    <header class="header static flex justify-between items-center">
-      <div class="header__logo">
-        <img src="./images/logo.png" alt="Logo" />
+    <header class="header header-expand-sm static">
+      <div class="container-fluid">
+        <a class="header__logo" href="#">
+          <img src="./images/logo.png" alt="Logo" />
+        </a>
+        <!-- TODO: toggler -->
+        <button type="button" class="header__toggler">
+          <span class="header__toggler-icon"></span>
+        </button>
+        <div class="collapse header-collapse">
+          <nav class="header__nav">
+            <a class="button button-link" href="#">挑戰自我</a>
+            <a class="button button-link" href="#">課程說明</a>
+            <a class="button button-link" href="#">培訓成果</a>
+          </nav>
+        </div>
       </div>
-      <nav class="header__nav nav">
-        <a class="button button-link" href="#">挑戰自我</a>
-        <a class="button button-link" href="#">課程說明</a>
-        <a class="button button-link" href="#">培訓成果</a>
-      </nav>
     </header>
     <!-- landing -->
     <section class="section-landing flex justify-center items-center">
@@ -35,35 +43,27 @@
     <section class="section-signup flex justify-center items-center">
       <div class="container">
         <div class="row">
-          <div class="col mt-0">
+          <div class="col-12 col-sm-3 mt-0">
             <div class="block bg-primary color-white">
               <span class="font-size-largest">優惠活動結束</span>
               <span class="font-size-large">請再關注我們的優惠時間</span>
             </div>
           </div>
-          <div class="col mt-0">
-            <div
-              class="block position-relative flex-row bg-secondary color-white w-fixed px-5"
-            >
+          <div class="col fixed-size order-xs-1 mt-0">
+            <div class="block flex flex-column bg-secondary color-white px-5">
+              <div class="stepper-upper-text">
+                <div class="font-size-small left-0"></div>
+                <div class="font-size-small left-34">達34人</div>
+                <div class="font-size-small left-76">達76人</div>
+                <div class="font-size-small left-100">達100人</div>
+              </div>
               <div class="stepper">
-                <div class="stepper-upper-text">
-                  <div class="font-size-small left-0"></div>
-                  <div class="font-size-small left-34">達34人</div>
-                  <div class="font-size-small left-76">達76人</div>
-                  <div class="font-size-small left-100">達100人</div>
-                </div>
                 <!-- TODO: width = total progress % -->
                 <div
                   class="stepper-bar"
                   role="progressbar"
                   style="width: 25%"
                 ></div>
-                <div class="stepper-lower-text">
-                  <div class="font-size-small left-0">預購開始</div>
-                  <div class="font-size-small left-34">送 Sass</div>
-                  <div class="font-size-small left-76">送 Webpack</div>
-                  <div class="font-size-small left-100">送資安課程</div>
-                </div>
               </div>
               <div class="stepper-progress">
                 <!-- TODO: generate steps and assign width classes -->
@@ -72,9 +72,15 @@
                 <div class="stepper-progress-step left-76"></div>
                 <div class="stepper-progress-step left-100"></div>
               </div>
+              <div class="stepper-lower-text">
+                <div class="font-size-small left-0">預購開始</div>
+                <div class="font-size-small left-34">送 Sass</div>
+                <div class="font-size-small left-76">送 Webpack</div>
+                <div class="font-size-small left-100">送資安課程</div>
+              </div>
             </div>
           </div>
-          <div class="col mt-0">
+          <div class="col-12 col-sm-3 mt-0">
             <div class="block bg-purple color-white pt-2">
               <span class="font-size-large">
                 已有
@@ -94,7 +100,7 @@
     </section>
     <!-- learn more #1 -->
     <section class="section-learn-more">
-      <div class="container">
+      <div class="container position-relative">
         <div class="row mb-4 section-learn-more__row-1">
           <div class="col col-md-6">
             <h2 class="display-h1 color-primary mb-5">
@@ -110,10 +116,12 @@
           </div>
         </div>
         <div class="row section-learn-more__row-background">
-          <div class="col"></div>
+          <div class="col px-0">
+            <img src="./images/media_talk.jpg" alt="" />
+          </div>
         </div>
         <div class="row mb-4 section-learn-more__row-2">
-          <div class="col">
+          <div class="col px-0">
             <!-- TODO: implement button click handler -->
             <button
               type="button"
@@ -324,7 +332,8 @@
             <span class="card-badge">第十三週</span>
             <h4 class="card-title">一起來 Vue 出前端的世界</h4>
             <p class="card-body">
-              建立使用者介面的開源 JavaScript 框架，也是一個建立單頁應用的 Web 應用框架。
+              建立使用者介面的開源 JavaScript 框架，也是一個建立單頁應用的 Web
+              應用框架。
             </p>
           </div>
           <div class="card">
@@ -373,21 +382,21 @@
           </div>
         </div>
         <div class="row justify-center items-center my-6">
-          <div class="col text-center">
+          <div class="col-12 col-sm-4 text-center">
             <p>
               <strong class="color-primary font-size-largest">159</strong>
               人
             </p>
             <p>結訓校友</p>
           </div>
-          <div class="col text-center">
+          <div class="col-12 col-sm-4 text-center">
             <p>
               <strong class="color-primary font-size-largest">85</strong>
               %
             </p>
             <p>成功轉職率</p>
           </div>
-          <div class="col text-center">
+          <div class="col-12 col-sm-4 text-center">
             <p>
               <strong class="color-primary font-size-largest">90</strong>
               %
