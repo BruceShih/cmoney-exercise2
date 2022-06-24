@@ -80,49 +80,21 @@ h1,
 .display-h1 {
   font-size: var(--font-size-h1);
 }
-/* @media (min-width: 480px) {
-  h1,
-  .display-h1 {
-    --font-size-h1: 2.5rem;
-    font-size: var(--font-size-h1);
-  }
-} */
 
 h2,
 .display-h2 {
   font-size: var(--font-size-h2);
 }
-/* @media (min-width: 480px) {
-  h2,
-  .display-h2 {
-    --font-size-h2: 2rem;
-    font-size: var(--font-size-h2);
-  }
-} */
 
 h3,
 .display-h3 {
   font-size: var(--font-size-h3);
 }
-/* @media (min-width: 480px) {
-  h3,
-  .display-h3 {
-    --font-size-h3: 1.75rem;
-    font-size: var(--font-size-h3);
-  }
-} */
 
 h4,
 .display-h4 {
   font-size: var(--font-size-h4);
 }
-/* @media (min-width: 480px) {
-  h4,
-  .display-h4 {
-    --font-size-h4: 1.5rem;
-    font-size: var(--font-size-h4);
-  }
-} */
 
 h5,
 .display-h5 {
@@ -321,14 +293,18 @@ a.button {
   background-size: 100% 100%;
 }
 
-@media (max-width: 479.98px) {
-  .header-expand-sm > .container-fluid {
-    padding-right: 0;
-    padding-left: 0;
+@media (max-width: 480px) {
+  .header.dynamic {
+    position: sticky;
+    top: 0;
   }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 481px) {
+  .header.dynamic {
+    top: 0;
+  }
+
   .header-expand-sm {
     flex-flow: row nowrap;
     justify-content: flex-start;

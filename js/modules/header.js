@@ -1,37 +1,59 @@
 const header = document.getElementById('Header');
 
-// detect current scroll position, if the position is greater than 70px, apply 'dynamic' class to header
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 70) {
-    header.classList.add('dynamic');
-    header.classList.remove('static');
-  } else {
-    header.classList.remove('dynamic');
-    header.classList.add('static');
-  }
-});
+if (header) {
+  // detect current scroll position, if the position is greater than 70px, apply 'dynamic' class to header
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 70) {
+      header.classList.add('dynamic');
+      header.classList.remove('static');
+    } else {
+      header.classList.remove('dynamic');
+      header.classList.add('static');
+    }
+  });
 
-// add domcontentloader event listener
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.scrollY > 70) {
-    header.classList.add('dynamic');
-    header.classList.remove('static');
-  } else {
-    header.classList.remove('dynamic');
-    header.classList.add('static');
-  }
-})
+  // add DOMContentLoaded event listener to apply 'dynamic' class to header if page is already scrolled
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.scrollY > 70) {
+      header.classList.add('dynamic');
+      header.classList.remove('static');
+    } else {
+      header.classList.remove('dynamic');
+      header.classList.add('static');
+    }
+  });
+}
 
-const headerNav = document.querySelectorAll('#Header header__nav .button-link');
+const headerNav = document.querySelector('#Header header__nav');
 
-headerNav.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') {
-    // scroll to the element with id
-    const id = e.target.getAttribute('href');
-    const element = document.querySelector(id);
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-  }
-})
+if (headerNav) {
+  // add navigation event listener
+  headerNav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      // scroll to the element with id
+      const id = e.target.getAttribute('href');
+      const element = document.querySelector(id);
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+}
+
+const headerLogo = document.querySelector('header__logo');
+
+if (headerLogo) {
+  // add logo event listener
+  headerLogo.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' || e.target.tagName === 'IMG') {
+      // scroll to the element with id
+      const id = e.target.getAttribute('href');
+      const element = document.querySelector(id);
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+}
