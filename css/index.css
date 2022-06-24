@@ -174,7 +174,7 @@ a.button {
   }
 }
 
-@-ms-keyframes reveal-header {
+@keyframes reveal-header {
   0% {
     top: -4.375rem;
   }
@@ -184,13 +184,39 @@ a.button {
   }
 }
 
-@keyframes reveal-header {
+@-moz-keyframes expand-header {
   0% {
-    top: -4.375rem;
+    top: -2rem;
+    opacity: 0;
   }
 
   100% {
     top: 0;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes expand-header {
+  0% {
+    top: -2rem;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes expand-header {
+  0% {
+    top: -2rem;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
   }
 }
 
@@ -206,7 +232,7 @@ a.button {
 
 .header.static {
   position: absolute;
-  animation: none;
+  animation-direction: alternate;
   background: transparent;
   box-shadow: none;
 }
@@ -245,27 +271,50 @@ a.button {
   text-decoration: none;
 }
 
+.header-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: flex-start;
+  position: relative;
+}
+
+.header-collapse.show {
+  display: block;
+  -moz-animation: expand-header 0.3s;
+  -webkit-animation: expand-header 0.3s;
+  -ms-animation: expand-header 0.3s;
+  animation: expand-header 0.3s;
+}
+
+.header-collapse.show > .header__nav {
+  position: absolute;
+}
+
+.header-collapse:not(.show) {
+  display: none;
+  animation-direction: alternate;
+}
+
 .header__nav {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding-left: 0;
   margin-bottom: 0;
+  width: 100%;
   list-style: none;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
-.header__nav .button-link {
-  padding-right: 0;
-  padding-left: 0;
+.header__nav > .button-link {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  width: 100%;
+  text-align: left;
 }
 
 .header.dynamic .header__nav .button-link {
   color: var(--color-black);
-}
-
-.header-collapse {
-  flex-basis: 100%;
-  flex-grow: 1;
-  align-items: center;
 }
 
 .header__toggler {
@@ -293,16 +342,23 @@ a.button {
   background-size: 100% 100%;
 }
 
-@media (max-width: 480px) {
-  .header.dynamic {
-    position: sticky;
-    top: 0;
-  }
-}
-
 @media (min-width: 481px) {
   .header.dynamic {
     top: 0;
+  }
+
+  .header__nav {
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1rem;
+    background-color: var(--background-transparent);
+  }
+
+  .header__nav .button-link {
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .header-expand-sm {
@@ -332,17 +388,6 @@ a.button {
   .header-expand-sm .header__toggler {
     display: none;
   }
-}
-
-.collapse:not(.show) {
-  display: none;
-}
-
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  transition: height 0.35s ease;
 }
 
 .header.dynamic + section {

@@ -3,7 +3,7 @@ const header = document.getElementById('Header');
 if (header) {
   // detect current scroll position, if the position is greater than 70px, apply 'dynamic' class to header
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 70) {
+    if (window.scrollY >= 70) {
       header.classList.add('dynamic');
       header.classList.remove('static');
     } else {
@@ -14,7 +14,7 @@ if (header) {
 
   // add DOMContentLoaded event listener to apply 'dynamic' class to header if page is already scrolled
   document.addEventListener('DOMContentLoaded', () => {
-    if (window.scrollY > 70) {
+    if (window.scrollY >= 70) {
       header.classList.add('dynamic');
       header.classList.remove('static');
     } else {
@@ -24,11 +24,25 @@ if (header) {
   });
 }
 
-const headerNav = document.querySelector('#Header header__nav');
+const toggler = document.querySelector('.header__toggler');
+const headerCollapse = document.querySelector('#Header .header-collapse');
+
+if (toggler && headerCollapse) {
+  toggler.addEventListener('click', (e) => {
+    if (headerCollapse.classList.contains('show')) {
+      headerCollapse.classList.remove('show');
+    } else {
+      headerCollapse.classList.add('show');
+    }
+  });
+}
+
+const headerNav = document.querySelector('#Header .header__nav');
 
 if (headerNav) {
   // add navigation event listener
   headerNav.addEventListener('click', (e) => {
+    console.log(e);
     if (e.target.tagName === 'A') {
       // scroll to the element with id
       const id = e.target.getAttribute('href');
@@ -37,11 +51,19 @@ if (headerNav) {
         behavior: 'smooth',
         block: 'start'
       });
+
+      if (headerCollapse) {
+        if (headerCollapse.classList.contains('show')) {
+          headerCollapse.classList.remove('show');
+        } else {
+          headerCollapse.classList.add('show');
+        }
+      }
     }
   });
 }
 
-const headerLogo = document.querySelector('header__logo');
+const headerLogo = document.querySelector('.header__logo');
 
 if (headerLogo) {
   // add logo event listener

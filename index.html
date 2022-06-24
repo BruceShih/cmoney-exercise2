@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
     <title>Document</title>
 
     <link rel="stylesheet" href="./css/normalize.css" />
@@ -14,7 +14,7 @@
   <body>
     <!-- TODO: header's onscroll event -->
     <header id="Header" class="header header-expand-sm static elevation-1">
-      <div class="container-fluid">
+      <div class="container-fluid px-0">
         <a class="header__logo" href="#Top">
           <img src="./images/logo.png" alt="Logo" />
         </a>
@@ -22,7 +22,7 @@
         <button type="button" class="header__toggler">
           <span class="header__toggler-icon"></span>
         </button>
-        <div class="collapse header-collapse">
+        <div class="header-collapse">
           <nav class="header__nav">
             <a class="button button-link" href="#Challenge">挑戰自我</a>
             <a class="button button-link" href="#Courses">課程說明</a>
@@ -102,7 +102,7 @@
     <section id="Challenge" class="section-learn-more py-6">
       <div class="container position-relative px-0">
         <div class="row section-learn-more__row-1 px-3">
-          <div class="col col-md-6 pl-4">
+          <div class="col col-md-6">
             <h2 class="color-primary mt-1">
               轉職？成為前端工程師？挑戰自我？三個願望一次滿足！
             </h2>
