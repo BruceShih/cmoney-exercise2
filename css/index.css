@@ -54,6 +54,7 @@
 
 html {
   font-size: var(--font-size-base);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -229,7 +230,6 @@ a.button {
   justify-content: space-between;
   width: 100%;
   height: 4.375rem;
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .header.static {
@@ -240,10 +240,14 @@ a.button {
 }
 
 .header.dynamic {
-  -moz-animation: reveal-header 0.5s;
-  -webkit-animation: reveal-header 0.5s;
-  -ms-animation: reveal-header 0.5s;
-  animation: reveal-header 0.5s;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  -moz-animation: reveal-header 0.3s;
+  -webkit-animation: reveal-header 0.3s;
+  -ms-animation: reveal-header 0.3s;
+  animation: reveal-header 0.3s;
+  z-index: 99;
 }
 
 .header > .container-fluid {
@@ -256,8 +260,8 @@ a.button {
 .header__logo {
   display: inline-block;
   padding-top: 0.5rem;
-  padding-bottom: 0.35rem;
-  margin-left: 1rem;
+  padding-bottom: 0;
+  margin-left: 0.75rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
@@ -280,6 +284,10 @@ a.button {
 .header__nav .button-link {
   padding-right: 0;
   padding-left: 0;
+}
+
+.header.dynamic .header__nav .button-link {
+  color: var(--color-black);
 }
 
 .header-collapse {
@@ -359,6 +367,10 @@ a.button {
   height: 0;
   overflow: hidden;
   transition: height 0.35s ease;
+}
+
+.header.dynamic + section {
+  margin-top: -4.375rem;
 }
 
 /* table */
