@@ -29,10 +29,17 @@ const headerCollapse = document.querySelector('#Header .header-collapse');
 
 if (toggler && headerCollapse) {
   toggler.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (headerCollapse.classList.contains('show')) {
       headerCollapse.classList.remove('show');
     } else {
       headerCollapse.classList.add('show');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (headerCollapse.classList.contains('show')) {
+      headerCollapse.classList.remove('show');
     }
   });
 }
@@ -42,7 +49,6 @@ const headerNav = document.querySelector('#Header .header__nav');
 if (headerNav) {
   // add navigation event listener
   headerNav.addEventListener('click', (e) => {
-    console.log(e);
     if (e.target.tagName === 'A') {
       // scroll to the element with id
       const id = e.target.getAttribute('href');
@@ -51,14 +57,6 @@ if (headerNav) {
         behavior: 'smooth',
         block: 'start'
       });
-
-      if (headerCollapse) {
-        if (headerCollapse.classList.contains('show')) {
-          headerCollapse.classList.remove('show');
-        } else {
-          headerCollapse.classList.add('show');
-        }
-      }
     }
   });
 }

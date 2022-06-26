@@ -228,6 +228,7 @@ a.button {
   justify-content: space-between;
   width: 100%;
   height: 4.375rem;
+  z-index: 10;
 }
 
 .header.static {
@@ -348,7 +349,7 @@ a.button {
   }
 
   .header__nav {
-    position: relative;
+    position: relative !important;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
@@ -381,6 +382,7 @@ a.button {
 
   .header-expand-sm .header-collapse {
     display: flex !important;
+    flex-grow: 0;
     flex-basis: auto;
     justify-content: flex-end;
   }
