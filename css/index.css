@@ -1376,6 +1376,26 @@ th {
   opacity: 1;
 }
 
+/* reveal */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transition: 1s all ease-in-out;
+}
+
+.reveal.to-bottom {
+  transform: translateY(-50px);
+}
+
+.reveal.to-top {
+  transform: translateY(50px);
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /* stepper */
 .stepper-upper-text {
   display: flex;
