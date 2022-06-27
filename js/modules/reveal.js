@@ -1,57 +1,40 @@
-const reveals = document.querySelectorAll('.reveal');
-const countingElements = document.querySelectorAll('.counting');
-let currentActive = 0;
+function scrollTrigger(selector, options = {}) {
+  let elements = document.querySelectorAll(selector);
+  elements = Array.from(elements);
+  elements.forEach((element) => {
+    addObserver(element, options);
+  });
+}
 
-window.addEventListener('scroll', (e) => {
-  const current =
-    reveals.length -
-    [...reveals]
-      .reverse()
-      .findIndex(
-        (reveal) => reveal.getBoundingClientRect().top < window.innerHeight - 50
-      ) -
-    1;
-
-  const counting =
-    countingElements.length -
-    [...reveals]
-      .reverse()
-      .findIndex(
-        (count) => count.getBoundingClientRect().top < window.innerHeight - 50
-      ) -
-    1;
-
-  if (current !== currentActive) {
-    currentActive = current;
-    makeActive(current);
-  }
-
-  if (counting >= 0) {
-    if (countingElements[counting].classList.contains('animating') === false) {
-      animate(
-        countingElements[counting],
-        0,
-        countingElements[counting].innerText,
-        1000
-      );
+function addObserver(element, options) {
+  if (!('IntersectionObserver' in window)) {
+    if (options.cb) {
+      options.cb(element);
+    } else {
+      entry.target.classList.add('active');
     }
+    return;
   }
-});
 
-function makeActive(index) {
-  if (index < reveals.length) {
-    reveals[index].classList.add('active');
-  }
-}
-
-function removeActive(index) {
-  if (index < reveals.length) {
-    reveals[index].classList.remove('active');
-  }
-}
-
-function removeAllActive() {
-  [...Array(reveals.length).keys()].forEach((index) => removeActive(index));
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (options.cb) {
+          options.cb(element);
+        } else {
+          const countingElement = entry.target.querySelector('.counting');
+          if (countingElement) {
+            if (countingElement.classList.contains('animating') === false) {
+              animate(countingElement, 0, countingElement.innerText, 1000);
+            }
+          }
+          entry.target.classList.add('active');
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+  observer.observe(element);
 }
 
 function animate(element, initValue, finalValue, duration) {
@@ -76,3 +59,5 @@ function animate(element, initValue, finalValue, duration) {
 
   window.requestAnimationFrame(step);
 }
+
+scrollTrigger('.reveal');
