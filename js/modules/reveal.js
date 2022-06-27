@@ -1,22 +1,39 @@
+const reveals = document.querySelectorAll('.reveal');
+const countingElements = document.querySelectorAll('.counting');
+let currentActive = 0;
+
 window.addEventListener('scroll', (e) => {
-  const reveals = document.querySelectorAll('.reveal');
+  const current =
+    reveals.length -
+    [...reveals]
+      .reverse()
+      .findIndex(
+        (reveal) => reveal.getBoundingClientRect().top < window.innerHeight - 50
+      ) -
+    1;
 
-  for (let index = 0; index < reveals.length; index++) {
-    const windowHeight = window.innerHeight;
-    const elementTop = reveals[index].getBoundingClientRect().top;
-    const elementVisible = 50;
-
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[index].classList.add('active');
-      const elements = document.querySelectorAll('.counting');
-      elements.forEach((element) => {
-        animate(element, 0, element.innerText, 1000);
-      })
-    } else {
-      reveals[index].classList.remove('active');
-    }
+  if (current !== currentActive) {
+    // removeAllActive();
+    currentActive = current;
+    makeActive(current);
   }
 });
+
+function makeActive(index) {
+  if (index < reveals.length) {
+    reveals[index].classList.add('active');
+  }
+}
+
+function removeActive(index) {
+  if (index < reveals.length) {
+    reveals[index].classList.remove('active');
+  }
+}
+
+function removeAllActive() {
+  [...Array(reveals.length).keys()].forEach((index) => removeActive(index));
+}
 
 function animate(element, initValue, finalValue, duration) {
   let startTime = null;
