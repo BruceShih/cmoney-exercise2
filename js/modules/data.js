@@ -22,18 +22,26 @@ fetch('http://localhost:3000/activity')
       }
     } else {
       if (!isEnd) {
-        const remainingTime = new Date(
-          endTime.getTime() - new Date().getTime()
-        );
-        const day = remainingTime.getDate().toString().padStart(2, '0');
-        const hour = remainingTime.getHours().toString().padStart(2, '0');
-        const minute = remainingTime.getMinutes().toString().padStart(2, '0');
-        const second = remainingTime.getSeconds().toString().padStart(2, '0');
-        const html = `<strong class="font-size-larger">${day}</strong>天
-        <strong class="font-size-larger">${hour}</strong>時
-        <strong class="font-size-larger">${minute}</strong>分
-        <strong class="font-size-larger">${second}</strong>秒`;
-        setBlockOneText('優惠倒數', html);
+        // make a countdown timer
+        const timerInterval = setInterval(() => {
+          const remainingTime = new Date(
+            endTime.getTime() - new Date().getTime()
+          );
+          const day = remainingTime.getDate().toString().padStart(2, '0');
+          const hour = remainingTime.getHours().toString().padStart(2, '0');
+          const minute = remainingTime.getMinutes().toString().padStart(2, '0');
+          const second = remainingTime.getSeconds().toString().padStart(2, '0');
+          const html = `<strong class="font-size-larger">${day}</strong>天
+            <strong class="font-size-larger">${hour}</strong>時
+            <strong class="font-size-larger">${minute}</strong>分
+            <strong class="font-size-larger">${second}</strong>秒`;
+          setBlockOneText('優惠倒數', html);
+
+          if (timerInterval < 0) {
+            clearInterval(timerInterval);
+            setBlockOneText('優惠活動結束', '請再關注我們的優惠時間');
+          }
+        }, 1000);
       }
     }
     const percentage = (personNum / lastList.level) * 100;

@@ -130,9 +130,32 @@ h6,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.button-link {
-  color: var(--color-primary);
-  background-color: var(--background-transparent);
+.button.bg-primary:hover {
+  background-color: rgba(36, 180, 215, 0.8);
+}
+
+.button.bg-secondary:hover {
+  background-color: rgba(77, 196, 225, 0.8);
+}
+
+.button.bg-purple:hover {
+  background-color: rgba(145, 142, 236, 0.8);
+}
+
+.button.bg-white:hover {
+  background-color: rgba(238, 238, 238, 0.9);
+}
+
+.button.bg-black:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button.bg-gray:hover {
+  background-color: rgba(51, 51, 51, 0.6);
+}
+
+.button.bg-lightgray:hover {
+  background-color: rgba(234, 234, 234, 0.6);
 }
 
 .button-fab {
@@ -146,14 +169,26 @@ h6,
   width: 5rem;
   height: 4.25rem;
   border-radius: 0.25rem;
-  background-color: var(--background-gray);
-  opacity: 0.6;
+  background-color: rgba(51, 51, 51, 0.6);
+}
+
+.button-fab:hover {
+  background-color: rgba(51, 51, 51, 0.8);
 }
 
 @media (min-width: 480px) {
   .button-fab {
     right: 3.75rem;
   }
+}
+
+.button-link {
+  color: var(--color-primary);
+  background-color: var(--background-transparent);
+}
+
+.button.button-link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 a.button {
