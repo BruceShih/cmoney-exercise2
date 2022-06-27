@@ -1,18 +1,20 @@
 {
-  "personNum": 70,
-  "endTime": "2022/07/23 00:00:00",
-  "list": [
-    {
-      "level": 25,
-      "productName": "Sass"
-    },
-    {
-      "level": 50,
-      "productName": "Webpack"
-    },
-    {
-      "level": 100,
-      "productName": "資安課程"
-    }
-  ]
+  "activity": {
+    "personNum": 70,
+    "endTime": "2022/07/23 00:00:00",
+    "list": [
+      {
+        "level": 25,
+        "productName": "Sass"
+      },
+      {
+        "level": 50,
+        "productName": "Webpack"
+      },
+      {
+        "level": 100,
+        "productName": "資安課程"
+      }
+    ]
+  }
 }
