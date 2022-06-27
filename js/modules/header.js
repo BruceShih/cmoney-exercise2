@@ -44,23 +44,6 @@ if (toggler && headerCollapse) {
   });
 }
 
-const headerNav = document.querySelector('#Header .header__nav');
-
-if (headerNav) {
-  // add navigation event listener
-  headerNav.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      // scroll to the element with id
-      const id = e.target.getAttribute('href');
-      const element = document.querySelector(id);
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-}
-
 const headerLogo = document.querySelector('.header__logo');
 
 if (headerLogo) {
