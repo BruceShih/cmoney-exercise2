@@ -675,6 +675,7 @@ th {
   background-repeat: repeat, no-repeat;
   background-size: 7.5px 7.5px, cover;
   background-position: top, top;
+  cursor: pointer;
   clip-path: polygon(22% 0, 100% 0%, 78% 100%, 0 100%);
 }
 

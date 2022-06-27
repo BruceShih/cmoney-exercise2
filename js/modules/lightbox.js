@@ -19,4 +19,15 @@ if (lightboxToggler) {
     const body = document.getElementsByTagName('body');
     body[0].classList.remove('overflow-hidden');
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Escape') {
+      const lightbox = document.querySelector('.lightbox');
+      if (lightbox.classList.contains('show')) {
+        lightbox.classList.remove('show');
+      }
+      const body = document.getElementsByTagName('body');
+      body[0].classList.remove('overflow-hidden');
+    }
+  });
 }
