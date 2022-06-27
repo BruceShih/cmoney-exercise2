@@ -13,7 +13,6 @@ window.addEventListener('scroll', (e) => {
     1;
 
   if (current !== currentActive) {
-    // removeAllActive();
     currentActive = current;
     makeActive(current);
   }
