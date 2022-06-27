@@ -76,7 +76,6 @@ function setBlockOneText(text1, text2) {
     span1.innerText = text1;
     firstBlock.appendChild(span1);
     const span2 = document.createElement('span');
-    span2.classList.add('font-size-large');
     span2.innerHTML = text2;
     firstBlock.appendChild(span2);
   } else {
