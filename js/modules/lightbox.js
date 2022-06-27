@@ -6,6 +6,8 @@ if (lightboxToggler) {
     const lightbox = document.querySelector('.lightbox');
     if (lightbox) {
       lightbox.classList.toggle('show');
+      lightbox.innerHTML =
+        '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
       const body = document.getElementsByTagName('body');
       body[0].classList.toggle('overflow-hidden');
     }
