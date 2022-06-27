@@ -12,9 +12,29 @@ window.addEventListener('scroll', (e) => {
       ) -
     1;
 
+  const counting =
+    countingElements.length -
+    [...reveals]
+      .reverse()
+      .findIndex(
+        (count) => count.getBoundingClientRect().top < window.innerHeight - 50
+      ) -
+    1;
+
   if (current !== currentActive) {
     currentActive = current;
     makeActive(current);
+  }
+
+  if (counting >= 0) {
+    if (countingElements[counting].classList.contains('animating') === false) {
+      animate(
+        countingElements[counting],
+        0,
+        countingElements[counting].innerText,
+        1000
+      );
+    }
   }
 });
 
@@ -37,6 +57,7 @@ function removeAllActive() {
 function animate(element, initValue, finalValue, duration) {
   let startTime = null;
   let currentTime = Date.now();
+  element.classList.add('animating');
   const step = (currentTime) => {
     if (!startTime) {
       startTime = currentTime;
